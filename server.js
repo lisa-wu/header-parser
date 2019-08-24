@@ -28,9 +28,9 @@ app.get("/api/hello", function (req, res) {
 // request header
 app.get("/api/whoami", (req, res) => {
   res.json({
-    "ipaddress": "",
-    "language": "",
-    "software": ""
+    "ipaddress": req.connection.remoteAddress,
+    "language": req.header('Accept-Language'), 
+    "software": req.header('User-Agent')
   })
 });
 
